@@ -8,6 +8,9 @@ let highscore = 0;
 const displayMessage = (message) => {
     document.querySelector('.message').textContent = message;
 }
+const displayNumber = (number) => {
+    document.querySelector('.number').textContent = number;
+}
 
 //!Using an event listener when user clicks 
 document.querySelector('.check').addEventListener('click', function() {
@@ -21,7 +24,7 @@ document.querySelector('.check').addEventListener('click', function() {
      // When the player wins the game.
     } else if (guess === secretNumber) {
         displayMessage('🎉 Correct Number!');
-        document.querySelector('.number').textContent = secretNumber;
+        displayNumber(secretNumber);
         
         // Background turns green when the user wins the game.
         document.querySelector('body').style.backgroundColor = '#60b347';
@@ -55,7 +58,7 @@ document.querySelector('.again').addEventListener('click', function() {
     secretNumber = Math.trunc(Math.random() * 20) + 1; 
 
     document.querySelector('.score').textContent = score;
-    document.querySelector('.number').textContent = '?';
+    displayNumber('?');
     document.querySelector('.guess').value = '';
 
     document.querySelector('body').style.backgroundColor = '#222';
